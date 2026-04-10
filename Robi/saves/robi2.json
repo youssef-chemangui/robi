@@ -1,0 +1,11 @@
+{
+  "format": "robi-save-v1",
+  "savedPath": "space.r",
+  "savedAt": "2026-04-09T12:51:17.725649400Z",
+  "commands": [
+    "(space add r (Rect new))",
+    "(space.r setColor green)",
+    "(space.r setDim 20 20)",
+    "(space.r translate 210 60)"
+  ]
+}

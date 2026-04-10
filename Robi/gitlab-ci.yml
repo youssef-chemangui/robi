@@ -1,0 +1,33 @@
+stages:
+  - build
+  - test
+  - quality
+
+variables:
+  MAVEN_CLI_OPTS: "-B -V"
+
+build:
+  stage: build
+  image: maven:3.8.8-openjdk-17
+  script:
+    - mvn clean compile
+
+test:
+  stage: test
+  image: maven:3.8.8-openjdk-17
+  script:
+    - mvn test
+  artifacts:
+    paths:
+      - target/surefire-reports/
+    expire_in: 1 week
+
+quality:
+  stage: quality
+  image: maven:3.8.8-openjdk-17
+  script:
+    - mvn site
+  artifacts:
+    paths:
+      - target/site/
+    expire_in: 1 week
